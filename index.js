@@ -9,6 +9,15 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
+// Root Route
+app.get('/', (req, res) => {
+    res.status(200).json({
+        message: 'Welcome to the Gender Classifier API',
+        usage: 'GET /api/classify?name=<name>'
+    });
+});
+
+
 /**
  * GET /api/classify
  * Classifies gender based on the provided name using Genderize API.
